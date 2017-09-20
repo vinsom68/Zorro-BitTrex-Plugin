@@ -9,13 +9,13 @@ BitTrex,BitTrex,111111,111111,11111,AssetsFix,USD,1,1,BitTrex
 
 
 - Add to the zorro.ini (need the header in bracket)
-The PrivateKey and PublicKey values need to be taken fron Kraken.
-DisplayCurrency is to show the balance in the selected currency, usually XBT, but can be different from base currency used for trading
+The PrivateKey and PublicKey values need to be taken from BitTrex.
+DisplayCurrency is to show the balance in the selected currency, usually BTC, but can be different from base currency used for trading
 BaseTradeCurrency is the base currency for trading. All traded pairs must have the selected BaseTradeCurrency 
-on the right of the pair (ie: DASH/XBT if set to XBT)
+on the right of the pair (ie: DASH/BTC if set to BTC)
 IntervalSec is to set a cache time to avoid calling some API to many times
-DemoTrading is to allow the Buy/Sell to be only validated by the broker but would not place an order. Set it to 0 for live trading
-EnableLog is to log to KrakenPlugin.log file
+DemoTrading is to allow the Buy/Sell order not to be sent to the broker. Set it to 0 for live trading
+EnableLog is to log to BitTrexPlugin.log file
 UseCryptoCompareHistory is to download history from CryptoCompare instead of Bittrex
 Min Order Size:  https://support.bittrex.com/hc/en-us/articles/202605394-Updates-to-Minimum-Trade-Sizes
 Starting July 30th, we are standardizing our minimum trade sizes at 50,000 satoshis.  
@@ -311,22 +311,19 @@ Knows Issues:
 	For example if you trade DOGE/BTC, and have an account in BTC with balance of 0.0000010, zorro will show 0.
 	Also in the Zorro log and Html report only 0s will be shown if values is outside of the 5 decimals.
 - 1 minute History very limited. Option provided to use CryptoCompare history that is a bit longer.
-- Sometimes you get Connection Timeout. The error shown in zorro is a parsing error, as the json parser can't parse the html page returned, you v=can get the html returned in the log file if enabled.
+- Sometimes you get Connection Timeout. The error shown in zorro is a parsing error, as the json parser can't parse the html page returned, you can get the html returned in the log file if enabled.
 - Need the VC++ redistributable installed
-- No leverage is supported by the plugin even though some pairs allow leverage
+- No leverage is supported by the plugin
 - NFA flag must be set in the accounts.csv
-- As kraken doesn't have demo accounts, limited testing has been done with real money
-- Zorro 1 lot will have a different min amount depending on the pair. See the values in the zorro.ini
-- Zorro works with market orders that have a higher fee 0.26% than limit orders 0.16%
-- Fees are 0.26% on kraken for market orders, so you need to approximate in your asset list something that matches an average amount that you trade for each pair, or write code to do the calculation.
+- As BitTrex doesn't have demo accounts, limited testing has been done with real money
+- Zorro 1 lot will have a different min amount depending on the pair that is set to the corresponding amount of 100k Satoshi. See the values in the zorro.ini
+- Fees are 0.25% on BitTrex for each trade.
 - Log file when enabled get big quickly. Use it for debug only or clean it often
-- Account balance when set to a currency different from base pair trading currency not working properly. Keep everything in XBT , even though for low balances you are going to see only 0s.
-- If Account display in USD , balance, risk , profit for DOGE and XLM seems incorrect. Might be due to the number of decimals.
 
 
 Planned to do:
 - Tool to download daily history from cryptocompare
-- Bittrex plugin
+
 
 Suggestions for zorro team:
 Allow the number of displayed and logged decimals to be configurable in zorro.ini
