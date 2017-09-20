@@ -1,0 +1,33 @@
+﻿Build started 15/05/2017 21:41:28.
+     1>Project "H:\IB\IBData\IBData.vcxproj" on node 2 (Rebuild target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (IBPluginAA.vcxproj, IGMPlugin.vcxproj, IGMPluginEmpty.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D IGMPLUGIN_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt dllmain.cpp
+         dllmain.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D IGMPLUGIN_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt easylogging++.cpp IBData.cpp stdafx.cpp
+         easylogging++.cpp
+         IBData.cpp
+     1>IBData.cpp(163): warning C4101: 'fFreeResult' : unreferenced local variable
+     1>IBData.cpp(557): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>IBData.cpp(558): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>IBData.cpp(643): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>IBData.cpp(644): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>IBData.cpp(645): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>IBData.cpp(646): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>IBData.cpp(647): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>IBData.cpp(1055): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+         stdafx.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"H:\IB\Release\IBData.dll" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"H:\IB\Release\IBData.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"H:\IB\Release\IBData.lib" /MACHINE:X86 /SAFESEH /DLL Release\dllmain.obj
+         Release\easylogging++.obj
+         Release\IBData.obj
+         Release\stdafx.obj
+            Creating library H:\IB\Release\IBData.lib and object H:\IB\Release\IBData.exp
+         Generating code
+         Finished generating code
+         IBData.vcxproj -> H:\IB\Release\IBData.dll
+     1>Done Building Project "H:\IB\IBData\IBData.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:18.63

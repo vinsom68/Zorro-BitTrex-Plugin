@@ -1,0 +1,41 @@
+﻿Build started 20/09/2017 4:36:12 PM.
+     1>Project "E:\IB\BitTrex\BitTrex.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (IBData.vcxproj, IBPluginAA.vcxproj, IGMPlugin.vcxproj, IGMPluginEmpty.vcxproj, Kraken.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D IGMPLUGIN_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /D _CRT_SECURE_NO_WARNINGS /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BitTrex.cpp
+         BitTrex.cpp
+     1>BitTrex.cpp(12): warning C4005: '_CRT_SECURE_NO_WARNINGS' : macro redefinition
+                 command-line arguments :  see previous definition of '_CRT_SECURE_NO_WARNINGS'
+     1>BitTrex.cpp(385): warning C4244: '=' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>BitTrex.cpp(386): warning C4244: 'return' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>BitTrex.cpp(938): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>BitTrex.cpp(940): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>BitTrex.cpp(942): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>BitTrex.cpp(944): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>BitTrex.cpp(946): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>BitTrex.cpp(993): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>BitTrex.cpp(994): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>BitTrex.cpp(1058): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>BitTrex.cpp(1060): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>BitTrex.cpp(1062): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>BitTrex.cpp(1064): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>BitTrex.cpp(1066): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>BitTrex.cpp(1629): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\IB\Release\BitTrex.dll" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\IB\Release\BitTrex.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\IB\Release\BitTrex.lib" /MACHINE:X86 /SAFESEH /DLL Release\base64.obj
+         Release\dllmain.obj
+         Release\easylogging++.obj
+         Release\easywsclient.obj
+         Release\BitTrex.obj
+         Release\sha256.obj
+         Release\sha512.obj
+         Release\stdafx.obj
+            Creating library E:\IB\Release\BitTrex.lib and object E:\IB\Release\BitTrex.exp
+         Generating code
+         Finished generating code
+         BitTrex.vcxproj -> E:\IB\Release\BitTrex.dll
+     1>Done Building Project "E:\IB\BitTrex\BitTrex.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:40.79

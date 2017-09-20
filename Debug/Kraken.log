@@ -1,0 +1,11 @@
+﻿Build started 11/09/2017 12:01:35 PM.
+     1>Project "E:\IB\Kraken\Kraken.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(364,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (IBData.vcxproj, IBPluginAA.vcxproj, IGMPlugin.vcxproj, IGMPluginEmpty.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>Link:
+         Kraken.vcxproj -> E:\IB\Kraken\..\..\Zorro\Plugin\Kraken.dll
+     1>Done Building Project "E:\IB\Kraken\Kraken.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.45

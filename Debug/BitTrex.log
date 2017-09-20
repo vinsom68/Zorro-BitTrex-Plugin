@@ -1,0 +1,44 @@
+﻿Build started 9/20/2017 8:55:02 PM.
+     1>Project "H:\IB\BitTrex\BitTrex.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(364,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (IBData.vcxproj, IBPluginAA.vcxproj, IGMPlugin.vcxproj, IGMPluginEmpty.vcxproj, Kraken.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D IGMPLUGIN_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /D _CRT_SECURE_NO_WARNINGS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BitTrex.cpp stdafx.cpp
+         stdafx.cpp
+         BitTrex.cpp
+     1>h:\ib\bittrex\bittrex.cpp(12): warning C4005: '_CRT_SECURE_NO_WARNINGS' : macro redefinition
+                 command-line arguments :  see previous definition of '_CRT_SECURE_NO_WARNINGS'
+     1>h:\ib\bittrex\bittrex.cpp(385): warning C4244: '=' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>h:\ib\bittrex\bittrex.cpp(386): warning C4244: 'return' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>h:\ib\bittrex\bittrex.cpp(938): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>h:\ib\bittrex\bittrex.cpp(940): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>h:\ib\bittrex\bittrex.cpp(942): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>h:\ib\bittrex\bittrex.cpp(944): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>h:\ib\bittrex\bittrex.cpp(946): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>h:\ib\bittrex\bittrex.cpp(993): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>h:\ib\bittrex\bittrex.cpp(994): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>h:\ib\bittrex\bittrex.cpp(1058): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>h:\ib\bittrex\bittrex.cpp(1060): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>h:\ib\bittrex\bittrex.cpp(1062): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>h:\ib\bittrex\bittrex.cpp(1064): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>h:\ib\bittrex\bittrex.cpp(1066): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>h:\ib\bittrex\bittrex.cpp(1629): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+         Generating Code...
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D IGMPLUGIN_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /D _CRT_SECURE_NO_WARNINGS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt dllmain.cpp
+         dllmain.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\Zorro\Plugin\BitTrex.dll" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\..\Zorro\Plugin\BitTrex.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\..\Zorro\Plugin\BitTrex.lib" /MACHINE:X86 /DLL Debug\base64.obj
+         Debug\dllmain.obj
+         Debug\easylogging++.obj
+         Debug\easywsclient.obj
+         Debug\BitTrex.obj
+         Debug\sha256.obj
+         Debug\sha512.obj
+         Debug\stdafx.obj
+            Creating library ..\..\Zorro\Plugin\BitTrex.lib and object ..\..\Zorro\Plugin\BitTrex.exp
+         BitTrex.vcxproj -> H:\IB\BitTrex\..\..\Zorro\Plugin\BitTrex.dll
+     1>Done Building Project "H:\IB\BitTrex\BitTrex.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:10.57
