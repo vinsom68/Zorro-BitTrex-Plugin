@@ -1,4 +1,4 @@
-﻿Build started 20/09/2017 4:36:12 PM.
+﻿Build started 21/09/2017 11:33:44 AM.
      1>Project "E:\IB\BitTrex\BitTrex.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (IBData.vcxproj, IBPluginAA.vcxproj, IGMPlugin.vcxproj, IGMPluginEmpty.vcxproj, Kraken.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
@@ -38,4 +38,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:40.79
+Time Elapsed 00:00:21.19

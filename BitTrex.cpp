@@ -1148,7 +1148,7 @@ DLLFUNC int BrokerAsset(char* Asset, double* pPrice, double* pSpread, double *pV
 
 		if (pVolume)
 		{
-			*pVolume = atof(resultArr.begin()->get("BaseVolume").to_str().c_str());
+			*pVolume = atof(resultArr.begin()->get("BaseVolume").to_str().c_str())/1440;
 			at.volume = *pVolume;
 			logDetails = logDetails + "Volume: " + ftoa(*pVolume) + " ";
 		}
