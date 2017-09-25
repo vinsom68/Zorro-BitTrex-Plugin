@@ -1146,11 +1146,17 @@ DLLFUNC int BrokerAsset(char* Asset, double* pPrice, double* pSpread, double *pV
 		}
 
 
+		//Optional output, recent trade volume of the asset per minute, or 0 when the volume is unavailable. 
+		//If no volume is returned in this function, Zorro retrieves it with a BrokerHistory2 call. 
+		//https://min-api.cryptocompare.com/data/histominute?fsym=ETH&tsym=BTC&limit=0&aggregate=1&e=CCCAGG&toTs=1506295113043
+		//https://bittrex.com/Api/v2.0/pub/market/GetLatestTick?marketName=BTC-ETH&tickInterval=oneMin&_=1506295113043
 		if (pVolume)
 		{
-			*pVolume = atof(resultArr.begin()->get("BaseVolume").to_str().c_str())/1440;
+			*pVolume = 0;
+			//This one is the 24h volume. better to let it take it from the history
+/*			*pVolume = atof(resultArr.begin()->get("BaseVolume").to_str().c_str())/1440;
 			at.volume = *pVolume;
-			logDetails = logDetails + "Volume: " + ftoa(*pVolume) + " ";
+			logDetails = logDetails + "Volume: " + ftoa(*pVolume) + " ";*/
 		}
 
 
