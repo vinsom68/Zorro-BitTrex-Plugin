@@ -78,7 +78,7 @@ typedef int(__cdecl *BROKERHISTORY2)(LPCSTR, DATE, DATE, int, int, T6*);
 typedef int(__cdecl *BROKERASSET)(LPCSTR, double *, double *, double *, double *, double *, double *, double *, double *, double *);
 typedef int(__cdecl *BROKERACCOUNT)(LPCSTR, double *, double *, double *);
 typedef int(__cdecl *BROKERBUY)(LPCSTR, int, double, double *);
-typedef int(__cdecl *BROKERTRADE)(int, double*, double *, double*, double*);
+//typedef int(__cdecl *BROKERTRADE)(int, double*, double *, double*, double*);
 typedef int(__cdecl *BROKERSELL)(int, int);
 //typedef int(__cdecl *BROKERSTOP)(int, double);
 typedef double(__cdecl *BROKERCOMMAND)(int, DWORD);
@@ -1576,104 +1576,104 @@ DLLFUNC int BrokerBuy(char* Asset, int nAmount, double dStopDist, double *pPrice
 }
 
 // returns negative amount when the trade was closed
-DLLFUNC int BrokerTrade(int nTradeID, double *pOpen, double *pClose, double *pRoll, double *pProfit)
-{
-	Log("BrokerTrade IN", 0,false);
-
-	if (!IsLoggedIn())
-		return 0;
-
-	//TODO
-	//nTradeID = 1502429247;
-	if (g_DemoTrading)
-	{
-		//double *DemoTrade = DemoTradesID.TryGetValue(nTradeID);
-		return 0;//*DemoTrade;
-	}
-
-	int ret = 0;
-	std::string ApiPath = "/0/private/ClosedOrders";//QueryOrders"
-
-	char cTradeID[20];
-	_itoa(nTradeID, cTradeID, 10);
-	std::string sTradeID(cTradeID);
-	std::string data = "trades=true&userref=" + sTradeID;
-	std::string logDetails = "TradeID Details: " + sTradeID + " ";
-
-	try
-	{
-		//TODO
-		//std::string content;// = "{\"error\":[],\"result\":{\"closed\":{\"OQLOGW-HS7AR-PX3HJR\":{\"refid\":null,\"userref\":1502429247,\"status\":\"closed\",\"reason\":\"User canceled\",\"opentm\":1502421611.0928,\"closetm\":1502421767.3221,\"starttm\":0,\"expiretm\":0,\"descr\":{\"pair\":\"XDGXBT\",\"type\":\"buy\",\"ordertype\":\"limit\",\"price\":\"0.00000010\",\"price2\":\"0\",\"leverage\":\"none\",\"order\":\"buy 3000.00000000 XDGXBT @ limit 0.00000010\"},\"vol\":\"3000.00000000\",\"vol_exec\":\"3000.00000000\",\"cost\":\"0.00168000\",\"fee\":\"0.00000436\",\"price\":\"0.00000056\",\"misc\":\"\",\"oflags\":\"fciq\"}},\"count\":1}}";
-		Log(data, 0,false);
-		picojson::value::object objJson;
-		if (!CallAPIAndParse(ApiPath, objJson, "", data, true))
-		{
-			Log("Error calling API BrokerTrade", 1,true);
-			Log("BrokerTrade OUT", 0,false);
-			return 0;
-		}
-
-		picojson::value::object::const_iterator iA = objJson.begin(); ++iA;
-		Log(iA->second.serialize(), 0,false);
-		const picojson::value::object& firstBlock = iA->second.get<picojson::object>().begin()->second.get<picojson::object>();
-		const picojson::value::object& descrBlock = firstBlock.begin()->second.get("descr").get<picojson::object>();
-		std::string pair = descrBlock.at("pair").to_str();
-		logDetails = logDetails + "Pair: " + pair + " ";
-
-		if (pOpen)
-		{
-			*pOpen = atof(firstBlock.begin()->second.get("price").to_str().c_str());
-			logDetails = logDetails + "Open: " + ftoa(*pOpen) + " ";
-		}
-
-		std::string type = descrBlock.at("type").to_str();
-		logDetails = logDetails + "Type: " + type + " ";
-
-		AssetTicker *lastPrice = SymbolLastPrice.TryGetValue(pair);
-		if (pClose && lastPrice)
-		{
-			if (type=="buy")
-				*pClose = lastPrice->ask;
-			else if (type == "sell")
-				*pClose = lastPrice->bid;
-			logDetails = logDetails + "Close: " + ftoa(*pClose) + " ";
-		}
-
-		double execAmount = atof(firstBlock.begin()->second.get("vol_exec").to_str().c_str());
-		ret = execAmount / lastPrice->minAmount;
-		logDetails = logDetails + "Vol: " + ftoa(execAmount) + " ";
-
-		double fee = atof(firstBlock.begin()->second.get("fee").to_str().c_str());
-		logDetails = logDetails + "Fee: " + ftoa(fee) + " ";
-
-		if (pProfit)
-		{
-			if (type=="buy")
-				*pProfit = (*pClose * execAmount) - (*pOpen * execAmount) - fee;
-			else if (type=="sell")
-				*pProfit = (*pOpen * execAmount) - (*pClose * execAmount) - fee;
-
-			logDetails = logDetails + "Profit " + g_BaseTradeCurrency + ": " + ftoa(*pProfit) + " ";
-			if (g_BaseTradeCurrency!=g_DisplayCurrency)
-				logDetails = logDetails + "Profit " + g_DisplayCurrency + ": " + ftoa(*pProfit * g_BaseCurrAccCurrConvRate) + " ";
-		}
-
-		*pRoll = 0;
-		
-		Log(logDetails, 0, true);
-
-	}
-	catch (const std::exception& e)
-	{
-		Log(e.what(),1,true);
-		Log("BrokerTrade OUT", 0,false);
-		return 0;
-	}
-
-
-	Log("BrokerTrade OUT", 0, false);
-	return ret;
-}
+//DLLFUNC int BrokerTrade(int nTradeID, double *pOpen, double *pClose, double *pRoll, double *pProfit)
+//{
+//	Log("BrokerTrade IN", 0,false);
+//
+//	if (!IsLoggedIn())
+//		return 0;
+//
+//	//TODO
+//	//nTradeID = 1502429247;
+//	if (g_DemoTrading)
+//	{
+//		//double *DemoTrade = DemoTradesID.TryGetValue(nTradeID);
+//		return 0;//*DemoTrade;
+//	}
+//
+//	int ret = 0;
+//	std::string ApiPath = "/0/private/ClosedOrders";//QueryOrders"
+//
+//	char cTradeID[20];
+//	_itoa(nTradeID, cTradeID, 10);
+//	std::string sTradeID(cTradeID);
+//	std::string data = "trades=true&userref=" + sTradeID;
+//	std::string logDetails = "TradeID Details: " + sTradeID + " ";
+//
+//	try
+//	{
+//		//TODO
+//		//std::string content;// = "{\"error\":[],\"result\":{\"closed\":{\"OQLOGW-HS7AR-PX3HJR\":{\"refid\":null,\"userref\":1502429247,\"status\":\"closed\",\"reason\":\"User canceled\",\"opentm\":1502421611.0928,\"closetm\":1502421767.3221,\"starttm\":0,\"expiretm\":0,\"descr\":{\"pair\":\"XDGXBT\",\"type\":\"buy\",\"ordertype\":\"limit\",\"price\":\"0.00000010\",\"price2\":\"0\",\"leverage\":\"none\",\"order\":\"buy 3000.00000000 XDGXBT @ limit 0.00000010\"},\"vol\":\"3000.00000000\",\"vol_exec\":\"3000.00000000\",\"cost\":\"0.00168000\",\"fee\":\"0.00000436\",\"price\":\"0.00000056\",\"misc\":\"\",\"oflags\":\"fciq\"}},\"count\":1}}";
+//		Log(data, 0,false);
+//		picojson::value::object objJson;
+//		if (!CallAPIAndParse(ApiPath, objJson, "", data, true))
+//		{
+//			Log("Error calling API BrokerTrade", 1,true);
+//			Log("BrokerTrade OUT", 0,false);
+//			return 0;
+//		}
+//
+//		picojson::value::object::const_iterator iA = objJson.begin(); ++iA;
+//		Log(iA->second.serialize(), 0,false);
+//		const picojson::value::object& firstBlock = iA->second.get<picojson::object>().begin()->second.get<picojson::object>();
+//		const picojson::value::object& descrBlock = firstBlock.begin()->second.get("descr").get<picojson::object>();
+//		std::string pair = descrBlock.at("pair").to_str();
+//		logDetails = logDetails + "Pair: " + pair + " ";
+//
+//		if (pOpen)
+//		{
+//			*pOpen = atof(firstBlock.begin()->second.get("price").to_str().c_str());
+//			logDetails = logDetails + "Open: " + ftoa(*pOpen) + " ";
+//		}
+//
+//		std::string type = descrBlock.at("type").to_str();
+//		logDetails = logDetails + "Type: " + type + " ";
+//
+//		AssetTicker *lastPrice = SymbolLastPrice.TryGetValue(pair);
+//		if (pClose && lastPrice)
+//		{
+//			if (type=="buy")
+//				*pClose = lastPrice->ask;
+//			else if (type == "sell")
+//				*pClose = lastPrice->bid;
+//			logDetails = logDetails + "Close: " + ftoa(*pClose) + " ";
+//		}
+//
+//		double execAmount = atof(firstBlock.begin()->second.get("vol_exec").to_str().c_str());
+//		ret = execAmount / lastPrice->minAmount;
+//		logDetails = logDetails + "Vol: " + ftoa(execAmount) + " ";
+//
+//		double fee = atof(firstBlock.begin()->second.get("fee").to_str().c_str());
+//		logDetails = logDetails + "Fee: " + ftoa(fee) + " ";
+//
+//		if (pProfit)
+//		{
+//			if (type=="buy")
+//				*pProfit = (*pClose * execAmount) - (*pOpen * execAmount) - fee;
+//			else if (type=="sell")
+//				*pProfit = (*pOpen * execAmount) - (*pClose * execAmount) - fee;
+//
+//			logDetails = logDetails + "Profit " + g_BaseTradeCurrency + ": " + ftoa(*pProfit) + " ";
+//			if (g_BaseTradeCurrency!=g_DisplayCurrency)
+//				logDetails = logDetails + "Profit " + g_DisplayCurrency + ": " + ftoa(*pProfit * g_BaseCurrAccCurrConvRate) + " ";
+//		}
+//
+//		*pRoll = 0;
+//		
+//		Log(logDetails, 0, true);
+//
+//	}
+//	catch (const std::exception& e)
+//	{
+//		Log(e.what(),1,true);
+//		Log("BrokerTrade OUT", 0,false);
+//		return 0;
+//	}
+//
+//
+//	Log("BrokerTrade OUT", 0, false);
+//	return ret;
+//}
 
 //DLLFUNC int BrokerSell(int nTradeID, int nAmount)
 //{
