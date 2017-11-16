@@ -4,10 +4,10 @@
 //https://github.com/yhirose/cpp-httplib
 
 #pragma once
-
+#define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
 #include "targetver.h"
 
-#define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
+
 // Windows Header Files:
 #include <windows.h>
 #include "stdio.h"
@@ -36,6 +36,7 @@
 //#include <mutex>
 
 #include "easylogging++.h"
+
 
 
 // TODO: reference additional headers your program requires here

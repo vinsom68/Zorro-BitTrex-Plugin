@@ -9,14 +9,13 @@ fees https://support.bittrex.com/hc/en-us/articles/115000199651-What-fees-does-B
 */
 
 
-#define _CRT_SECURE_NO_WARNINGS
+//#define _CRT_SECURE_NO_WARNINGS
 #include "stdafx.h"
-
+INITIALIZE_EASYLOGGINGPP
 //#define FROMFILE
 //#define FAKELOGIN
 
 
-INITIALIZE_EASYLOGGINGPP
 
 BOOL APIENTRY DllMain(HMODULE hModule,
 DWORD  ul_reason_for_call,
@@ -170,6 +169,8 @@ int g_LimitOrderMaxOrderBookDepth = 0;
 double g_BaseCurrAccCurrConvRate = 1;
 int g_UseCryptoCompareHistory = 0;
 
+el::Logger* defaultLogger = 0;
+
 std::string _BaseUrl = "https://bittrex.com/api/v1.1/";
 
 ////////////////////////////////////////////////////////////////
@@ -249,13 +250,16 @@ ennd:
 
 void Log(std::string message, int Level, bool LogZorro)
 {
+	if(defaultLogger == 0)
+		defaultLogger = el::Loggers::getLogger("default");
 
 	if (g_EnableLog == 1)
 	{
 		if (Level == 0)
-			LOG(INFO) << message.c_str();
+			defaultLogger->info(message.c_str());//LOG(INFO) << message.c_str();
 		else if (Level == 1)
-			LOG(ERROR) << message.c_str();
+			defaultLogger->error(message.c_str());
+			//LOG(ERROR) << message.c_str();
 	}
 
 	if (LogZorro)
@@ -1223,7 +1227,11 @@ DLLFUNC int BrokerAsset(char* Asset, double* pPrice, double* pSpread, double *pV
 			*/
 			if (pPipCost)
 			{
-				*pPipCost = (*pMinAmount * *pPip) * g_BaseCurrAccCurrConvRate;
+				if (SymbolLastPriceVal)
+					*pPipCost = (SymbolLastPriceVal->minAmount * *pPip) * g_BaseCurrAccCurrConvRate;
+				else
+					*pPipCost = (at.minAmount * *pPip) * g_BaseCurrAccCurrConvRate;
+
 				logDetails = logDetails + "PipCost: " + ftoa(*pPipCost) + " ";
 			}
 
