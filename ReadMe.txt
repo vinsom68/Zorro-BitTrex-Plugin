@@ -18,9 +18,9 @@ DemoTrading is to allow the Buy/Sell order not to be sent to the broker. Set it 
 EnableLog is to log to BitTrexPlugin.log file
 UseCryptoCompareHistory is to download history from CryptoCompare instead of Bittrex
 Min Order Size:  https://support.bittrex.com/hc/en-us/articles/202605394-Updates-to-Minimum-Trade-Sizes
-Starting July 30th, we are standardizing our minimum trade sizes at 50,000 satoshis.  
+Starting July 30th, we are standardizing our minimum trade sizes at 100,000 satoshis.  
 API users will see the following error code when placing too small of an order. DUST_TRADE_DISALLOWED_MIN_VALUE_50K_SAT
-I set a default value of 100K Satoshi in the config file, to keep the amount constant while trading.
+I set a default value of 200K Satoshi in the config file, to keep the amount constant while trading.
 This because as the exchange rate between coins and Bitcoin fluctuates, also would the min amount.
 So I set this value only at the Zorro Start, and leave unchanged thereafter.
 To be sure that there will be no min amount trading issue, just doubleing it up.
@@ -37,7 +37,7 @@ IntervalSec = "30"
 DemoTrading="1"
 EnableLog="1"
 UseCryptoCompareHistory="1"
-MinOrderSize="100000"
+MinOrderSize="200000"
 LimitOrderMaxOrderBookDepth="10"
 WaitAfterOrderForCheckSec="2"
 
