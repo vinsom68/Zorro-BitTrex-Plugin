@@ -1,4 +1,4 @@
-﻿Build started 11/16/2017 8:59:20 PM.
+﻿Build started 12/3/2017 3:36:38 PM.
      1>Project "H:\IB\BitTrex\BitTrex.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(364,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (IBData.vcxproj, IBPluginAA.vcxproj, IGMPlugin.vcxproj, IGMPluginEmpty.vcxproj, Kraken.vcxproj).  This can lead to incorrect clean and rebuild behavior.
@@ -30,10 +30,9 @@
          Debug\sha256.obj
          Debug\sha512.obj
          Debug\stdafx.obj
-            Creating library ..\..\Zorro\Plugin\BitTrex.lib and object ..\..\Zorro\Plugin\BitTrex.exp
          BitTrex.vcxproj -> H:\IB\BitTrex\..\..\Zorro\Plugin\BitTrex.dll
      1>Done Building Project "H:\IB\BitTrex\BitTrex.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:12.79
+Time Elapsed 00:00:11.43

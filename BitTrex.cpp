@@ -1188,7 +1188,31 @@ DLLFUNC int BrokerAsset(char* Asset, double* pPrice, double* pSpread, double *pV
 				if (g_BaseTradeCurrency=="USDT")
 					*pPip = 0.01;
 				else
+				{
+					//https://support.bittrex.com/hc/en-us/articles/115003004171
+					/*
+					On a per market basis, we will be instituting minimum tick sizes that are based on the current price of the market.  
+					The target is to have minimum trade sizes that are near 0.1% of the current price.  The current minimum tick size is 1 satoshi.  
+					For example, Ethereum trades at 0.0577 Bitcoin.  Bids and asks can only be placed in 0.0001 increments.  
+					So the next level on the bid side of the orderbook will be 0.0576 and 0.0578 on the ask.*/
+					/*
+					if(pPrice)
+					{
+						double curPip = (*pPrice*0.1) / 100;
+						char  sCurPip[] = "0.00000000";
+						sprintf(sCurPip, "%f", curPip);
+						std::string strCurPip(sCurPip);
+						//strCurPip = strCurPip.Replace('.','0');
+						int first0pos = strCurPip.find_first_not_of("0.");
+
+
+						char  decval[] = "0.00000000";
+						decval[first0pos - 1 ] = '1';
+						*pPip = atof(decval);
+					}
+					*/
 					*pPip = 0.00000001;
+				}
 			}
 
 
@@ -1201,9 +1225,26 @@ DLLFUNC int BrokerAsset(char* Asset, double* pPrice, double* pSpread, double *pV
 			Some CFDs can have a lot size less than one contract, such as 0.1 contracts. For most other assets it's normally 1 contract per lot.
 			*/
 
-			if (pMinAmount)
+			if (pMinAmount && pPrice)
 			{
-				*pMinAmount = (atoi(g_MinOrderSize.c_str()) * *pPip) / (*pPrice-*pSpread);
+				/*We leave the pPip as it is and round the MinAmount to the pip required by the new Bittrex spec
+				https://support.bittrex.com/hc/en-us/articles/115003004171
+				*/
+				double curPip = (*pPrice*0.1) / 100;
+				char  sCurPip[] = "0.00000000";
+				sprintf(sCurPip, "%f", curPip);
+				std::string strCurPip(sCurPip);
+				int first0pos = strCurPip.find_first_not_of("0.");
+				char  decval[] = "0.00000000";
+				decval[first0pos - 1] = '1';
+
+				double MinAmount = (atoi(g_MinOrderSize.c_str()) * *pPip) / (*pPrice - *pSpread);
+				char  sMinAmount[] = "0.00000000";
+				std::string format = "%0." + itoa(first0pos - 2) + "f";
+				sprintf(sMinAmount, format.c_str(), MinAmount);
+
+				//*pMinAmount = (atoi(g_MinOrderSize.c_str()) * *pPip) / (*pPrice-*pSpread);
+				*pMinAmount = atof(sMinAmount);
 				at.minAmount = *pMinAmount;
 
 				if (SymbolLastPriceVal)
