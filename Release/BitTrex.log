@@ -1,4 +1,4 @@
-﻿Build started 12/3/2017 3:37:44 PM.
+﻿Build started 12/5/2017 7:01:17 AM.
      1>Project "H:\IB\BitTrex\BitTrex.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (IBData.vcxproj, IBPluginAA.vcxproj, IGMPlugin.vcxproj, IGMPluginEmpty.vcxproj, Kraken.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
@@ -6,20 +6,20 @@
          BitTrex.cpp
      1>h:\ib\bittrex\..\..\Zorro\include\trading.h(740): warning C4005: 'LOG' : macro redefinition
                  h:\ib\bittrex\easylogging++.h(4303) : see previous definition of 'LOG'
-     1>BitTrex.cpp(389): warning C4244: '=' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>BitTrex.cpp(390): warning C4244: 'return' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>BitTrex.cpp(942): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>BitTrex.cpp(944): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>BitTrex.cpp(946): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>BitTrex.cpp(948): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>BitTrex.cpp(950): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>BitTrex.cpp(997): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>BitTrex.cpp(390): warning C4244: '=' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>BitTrex.cpp(391): warning C4244: 'return' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>BitTrex.cpp(943): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>BitTrex.cpp(945): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>BitTrex.cpp(947): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>BitTrex.cpp(949): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>BitTrex.cpp(951): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
      1>BitTrex.cpp(998): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>BitTrex.cpp(1062): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>BitTrex.cpp(1064): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>BitTrex.cpp(1066): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>BitTrex.cpp(1068): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>BitTrex.cpp(1070): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>BitTrex.cpp(999): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>BitTrex.cpp(1063): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>BitTrex.cpp(1065): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>BitTrex.cpp(1067): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>BitTrex.cpp(1069): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>BitTrex.cpp(1071): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"H:\IB\Release\BitTrex.dll" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"H:\IB\Release\BitTrex.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"H:\IB\Release\BitTrex.lib" /MACHINE:X86 /SAFESEH /DLL Release\base64.obj
          Release\dllmain.obj
@@ -37,4 +37,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:25.19
+Time Elapsed 00:00:25.01

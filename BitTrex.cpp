@@ -149,6 +149,7 @@ enum INTERVAL
 
 
 //////////////////////// DLL Globals
+double const PIP = 0.00000001;
 static int g_nLoggedIn = 0;
 static HINSTANCE hinstLib = 0;
 Dictionary<std::string, SymbolCacheItem> SymbolDic;
@@ -1211,7 +1212,7 @@ DLLFUNC int BrokerAsset(char* Asset, double* pPrice, double* pSpread, double *pV
 						*pPip = atof(decval);
 					}
 					*/
-					*pPip = 0.00000001;
+					*pPip = PIP;
 				}
 			}
 
@@ -1231,20 +1232,24 @@ DLLFUNC int BrokerAsset(char* Asset, double* pPrice, double* pSpread, double *pV
 				https://support.bittrex.com/hc/en-us/articles/115003004171
 				*/
 				double curPip = (*pPrice*0.1) / 100;
-				char  sCurPip[] = "0.00000000";
-				sprintf(sCurPip, "%f", curPip);
+				if (curPip < PIP)
+					curPip = PIP;
+				char  sCurPip[] = "0.0000000000";
+				sprintf(sCurPip, "%0.8f", curPip);
 				std::string strCurPip(sCurPip);
 				int first0pos = strCurPip.find_first_not_of("0.");
-				char  decval[] = "0.00000000";
+				char  decval[] = "0.0000000000";
 				decval[first0pos - 1] = '1';
 
 				double MinAmount = (atoi(g_MinOrderSize.c_str()) * *pPip) / (*pPrice - *pSpread);
-				char  sMinAmount[] = "0.00000000";
+				char  sMinAmount[] = "0.0000000000";
 				std::string format = "%0." + itoa(first0pos - 2) + "f";
 				sprintf(sMinAmount, format.c_str(), MinAmount);
 
 				//*pMinAmount = (atoi(g_MinOrderSize.c_str()) * *pPip) / (*pPrice-*pSpread);
 				*pMinAmount = atof(sMinAmount);
+				if (*pMinAmount > 1)
+					*pMinAmount = atoi(sMinAmount);	
 				at.minAmount = *pMinAmount;
 
 				if (SymbolLastPriceVal)
