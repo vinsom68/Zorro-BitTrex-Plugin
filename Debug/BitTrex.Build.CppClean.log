@@ -3,6 +3,7 @@ h:\ib\bittrex\debug\vc120.idb
 h:\ib\bittrex\debug\base64.obj
 h:\ib\bittrex\debug\easylogging++.obj
 h:\ib\bittrex\debug\easywsclient.obj
+h:\ib\bittrex\debug\bittrex.obj
 h:\ib\bittrex\debug\sha256.obj
 h:\ib\bittrex\debug\sha512.obj
 h:\ib\bittrex\debug\stdafx.obj

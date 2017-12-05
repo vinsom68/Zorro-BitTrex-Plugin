@@ -1,9 +1,12 @@
-﻿Build started 12/5/2017 6:58:05 AM.
-     1>Project "H:\IB\BitTrex\BitTrex.vcxproj" on node 2 (Build target(s)).
+﻿Build started 12/6/2017 6:43:57 AM.
+     1>Project "H:\IB\Bittrex\BitTrex.vcxproj" on node 2 (Rebuild target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(364,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (IBData.vcxproj, IBPluginAA.vcxproj, IGMPlugin.vcxproj, IGMPluginEmpty.vcxproj, Kraken.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D IGMPLUGIN_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /D _CRT_SECURE_NO_WARNINGS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BitTrex.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D IGMPLUGIN_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /D _CRT_SECURE_NO_WARNINGS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt base64.cpp easylogging++.cpp easywsclient.cpp BitTrex.cpp sha256.cpp sha512.cpp stdafx.cpp
+         stdafx.cpp
+         sha512.cpp
+         sha256.cpp
          BitTrex.cpp
      1>h:\zorro\include\trading.h(740): warning C4005: 'LOG' : macro redefinition
                  h:\ib\bittrex\easylogging++.h(4303) : see previous definition of 'LOG'
@@ -21,6 +24,18 @@
      1>h:\ib\bittrex\bittrex.cpp(1067): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
      1>h:\ib\bittrex\bittrex.cpp(1069): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
      1>h:\ib\bittrex\bittrex.cpp(1071): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+         easywsclient.cpp
+     1>h:\ib\bittrex\easywsclient.cpp(413): warning C4244: 'argument' : conversion from 'uint64_t' to '__w64 int', possible loss of data
+                 h:\ib\bittrex\easywsclient.cpp(332) : see reference to function template instantiation 'void `anonymous-namespace'::_RealWebSocket::sendData<std::_String_iterator<std::_String_val<std::_Simple_types<char>>>>(`anonymous-namespace'::_RealWebSocket::wsheader_type::opcode_type,uint64_t,Iterator,Iterator)' being compiled
+                 with
+                 [
+                     Iterator=std::_String_iterator<std::_String_val<std::_Simple_types<char>>>
+                 ]
+         easylogging++.cpp
+         base64.cpp
+         Generating Code...
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D IGMPLUGIN_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /D _CRT_SECURE_NO_WARNINGS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt dllmain.cpp
+         dllmain.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\Zorro\Plugin\BitTrex.dll" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\..\Zorro\Plugin\BitTrex.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\..\Zorro\Plugin\BitTrex.lib" /MACHINE:X86 /DLL Debug\base64.obj
          Debug\dllmain.obj
@@ -30,9 +45,10 @@
          Debug\sha256.obj
          Debug\sha512.obj
          Debug\stdafx.obj
-         BitTrex.vcxproj -> H:\IB\BitTrex\..\..\Zorro\Plugin\BitTrex.dll
-     1>Done Building Project "H:\IB\BitTrex\BitTrex.vcxproj" (Build target(s)).
+            Creating library ..\..\Zorro\Plugin\BitTrex.lib and object ..\..\Zorro\Plugin\BitTrex.exp
+         BitTrex.vcxproj -> H:\IB\Bittrex\..\..\Zorro\Plugin\BitTrex.dll
+     1>Done Building Project "H:\IB\Bittrex\BitTrex.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:11.94
+Time Elapsed 00:00:44.54
